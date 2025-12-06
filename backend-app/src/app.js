@@ -1,10 +1,10 @@
-// src/app.js
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const { prisma } = require("./config/db");
 
 const userRoutes = require("./modules/users/user.routes");
+const groupRoutes = require("./modules/groups/group.routes");
 
 const app = express();
 
@@ -16,7 +16,6 @@ app.get("/health", (req, res) => {
   res.json({ status: "ok", message: "FairShare Backend is running 👋" });
 });
 
-// TEMP TEST ROUTE
 app.get("/test-users", async (req, res) => {
   try {
     const users = await prisma.user.findMany();
@@ -32,5 +31,6 @@ app.get("/test-users", async (req, res) => {
 
 // API routes
 app.use("/api/users", userRoutes);
+app.use("/api/groups", groupRoutes);
 
 module.exports = app;
