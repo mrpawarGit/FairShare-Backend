@@ -14,4 +14,37 @@ model User {
   name        String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  groupsCreated Group[]       @relation("GroupCreator")
+  groupMembers  GroupMember[]
+}
+
+model Group {
+  id          Int         @id @default(autoincrement())
+  name        String
+  description String?
+  createdById Int
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  createdBy   User        @relation("GroupCreator", fields: [createdById], references: [id])
+  members     GroupMember[]
+}
+
+model GroupMember {
+  id        Int       @id @default(autoincrement())
+  groupId   Int
+  userId    Int
+  role      GroupRole @default(MEMBER)
+  createdAt DateTime  @default(now())
+
+  group     Group     @relation(fields: [groupId], references: [id])
+  user      User      @relation(fields: [userId], references: [id])
+
+  @@unique([groupId, userId]) // user can’t join same group twice
+}
+
+enum GroupRole {
+  MEMBER
+  ADMIN
 }
