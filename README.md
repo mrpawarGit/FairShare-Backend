@@ -87,6 +87,7 @@ This structure follows **clean architecture principles** with:
 ```bash
 git clone https://github.com/mrpawarGit/FairShare-Backend.git
 cd FairShare-Backend
+cd backend-app
 ```
 
 ## 2️⃣ Install Dependencies
