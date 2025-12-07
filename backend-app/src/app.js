@@ -16,8 +16,12 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
+app.get("/", (req, res) => {
+  res.json({ status: "ok", message: "FairShare Backend is running" });
+});
+
 app.get("/health", (req, res) => {
-  res.json({ status: "ok", message: "FairShare Backend is running 👋" });
+  res.json({ status: "ok", message: "FairShare Backend is running" });
 });
 
 app.get("/test-users", async (req, res) => {
