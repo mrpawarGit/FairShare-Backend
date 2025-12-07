@@ -5,6 +5,7 @@ const { prisma } = require("./config/db");
 
 const userRoutes = require("./modules/users/user.routes");
 const groupRoutes = require("./modules/groups/group.routes");
+const expenseRoutes = require("./modules/expenses/expense.routes");
 
 const app = express();
 
@@ -32,5 +33,6 @@ app.get("/test-users", async (req, res) => {
 // API routes
 app.use("/api/users", userRoutes);
 app.use("/api/groups", groupRoutes);
+app.use("/api/expenses", expenseRoutes);
 
 module.exports = app;
