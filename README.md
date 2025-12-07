@@ -26,57 +26,6 @@ It uses **Firebase Authentication**, **PostgreSQL**, **Prisma ORM**, and **Node.
 | **Utilities**      | cors, dotenv, morgan, firebase-admin |
 
 ---
-
-# ⭐ Features
-
-### 🔐 Authentication (Firebase)
-
-* No custom passwords.
-* Users log in using Firebase.
-* Backend validates Firebase ID token + creates user in DB.
-
-### 👥 Groups
-
-* Create groups.
-* Add or remove members (Admin only).
-* View all groups you belong to.
-* Member role system (ADMIN / MEMBER).
-
-### 💰 Expenses
-
-* Create expenses inside or outside groups.
-* Define payer + participants.
-* Supported split types:
-
-  * **EQUAL**
-  * **EXACT**
-  * **PERCENT**
-* Update or delete (creator or payer only).
-
-### 📊 Balances
-
-Backend automatically calculates:
-
-* How much each user owes others.
-* How much they are owed.
-* Group-by-group balances.
-* Global balances.
-
-### 🔄 Debt Simplification (Mandatory Feature)
-
-* Minimizes number of transactions required to settle all debts.
-* Removes circular debts.
-* Works globally & per-group.
-* Does **not** modify actual DB values.
-
-### 🧾 Settlements
-
-* Users can record real payments.
-* Settlements affect balance calculations.
-* View settlement history for each group.
-
----
-
 # 📂 Project Structure
 
 ```
@@ -177,6 +126,57 @@ GET http://localhost:3000/health
 ```
 
 ---
+
+# ⭐ Features
+
+### 🔐 Authentication (Firebase)
+
+* No custom passwords.
+* Users log in using Firebase.
+* Backend validates Firebase ID token + creates user in DB.
+
+### 👥 Groups
+
+* Create groups.
+* Add or remove members (Admin only).
+* View all groups you belong to.
+* Member role system (ADMIN / MEMBER).
+
+### 💰 Expenses
+
+* Create expenses inside or outside groups.
+* Define payer + participants.
+* Supported split types:
+
+  * **EQUAL**
+  * **EXACT**
+  * **PERCENT**
+* Update or delete (creator or payer only).
+
+### 📊 Balances
+
+Backend automatically calculates:
+
+* How much each user owes others.
+* How much they are owed.
+* Group-by-group balances.
+* Global balances.
+
+### 🔄 Debt Simplification (Mandatory Feature)
+
+* Minimizes number of transactions required to settle all debts.
+* Removes circular debts.
+* Works globally & per-group.
+* Does **not** modify actual DB values.
+
+### 🧾 Settlements
+
+* Users can record real payments.
+* Settlements affect balance calculations.
+* View settlement history for each group.
+
+---
+
 
 # 🔐 Authentication Guide (Postman-Friendly)
 
